@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>A Humble Calculator</title>
+        <title>A Calculator</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="styles.css">
@@ -12,36 +12,37 @@
         <div class="content">
     <div id="calcontainer">
         <div id="calcontent">
-            <div id="calscreen"></div>
+            <div class="calscreen">
+                <div id="currentnumber"></div>
+                <div id="previousnumber"></div>
+            </div>
             <div id="buttonscontainer">
-                <div id="keys">
+                <div class="keys">
 
-                <button class="key1 key2 key3">AC</button>
-                <button class="key1 key2">C</button>
-                <button class="key1 key2">%</button>
-                <button class="key1 key2"><</button>
+                <button class="key1 key2 key3" id="allclear" data-type="operator">AC</button>
+                <button class="key1 key2" id="clear" data-type="operator">C</button>
+                <button class="key1 key2" data-type="operator">%</button>
+                <button class="key1 key2" id="erase"><</button>
 
-    
+                <button class="key1" data-type="number">9</button>
+                <button class="key1" data-type="number">8</button>
+                <button class="key1" data-type="number">7</button>
+                <button class="key1 key2" data-type="operator">+</button>
 
-                <button class="key1">9</button>
-                <button class="key1">8</button>
-                <button class="key1">7</button>
-                <button class="key1 key2">+</button>
+                <button class="key1" data-type="number">6</button>
+                <button class="key1" data-type="number">5</button>
+                <button class="key1" data-type="number">4</button>
+                <button class="key1 key2" data-type="operator">-</button>
 
-                <button class="key1">6</button>
-                <button class="key1">5</button>
-                <button class="key1">4</button>
-                <button class="key1 key2">-</button>
+                <button class="key1" data-type="number">3</button>
+                <button class="key1" data-type="number">2</button>
+                <button class="key1" data-type="number">1</button>
+                <button class="key1 key2" data-type="operator">X</button>
 
-                <button class="key1">3</button>
-                <button class="key1">2</button>
-                <button class="key1">1</button>
-                <button class="key1 key2">X</button>
-
-                <button class="key1">0</button>
-                <button class="key1">.</button>
-                <button class="key1">/</button>
-                <button class="key1 key2">=</button>
+                <button class="key1" data-type="number">0</button>
+                <button class="key1" id="decimal" data-type="number">.</button>
+                <button class="key1" data-type="operator">/</button>
+                <button class="key1 key2" id="equals" data-type="equals">=</button>
 
 
 
