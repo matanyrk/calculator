@@ -4,12 +4,13 @@ const equalsButton = document.getElementById('equals');
 const clearButton = document.getElementById('clear');
 const allClearButton = document.getElementById('allclear');
 const eraseButton = document.getElementById('erase');
+const percentageButton = document.getElementById('percent')
 let currentNumber = document.getElementById('currentnumber');
 let previousNumber = document.getElementById('previousnumber');
 let numbers = [0 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9];
 let currentAction = '';
-currentNumber.textContent = '';
 
+currentNumber.textContent = '';
 
 // function that operates the calculator and each of it's buttons
 
@@ -49,11 +50,21 @@ if (type === 'number'){
 // Event listener for the delete button
 
 eraseButton.addEventListener('click', deleteNumber);
+percentageButton.addEventListener('click', percentage);
+allClearButton.addEventListener('click', allclear);
+clearButton.addEventListener('click', clear);
+
 
 // Calculator functions
 
 function deleteNumber(){
 currentNumber.textContent = currentNumber.textContent.toString().slice(0, -1);
+}
+
+function percentage (){
+    addToPrev(currentNumber.textContent, '%');
+    currentNumber.textContent = parseFloat(currentNumber.textContent)/100 ;
+
 }
 
 function resetScreen(){
@@ -98,21 +109,26 @@ function deleteNumber (){
 currentNumber.textContent = currentNumber.textContent.toString().slice(0, -1);
 }
 
-
+function allclear (){
+    currentNumber.textContent = '';
+    previousNumber.textContent = '';
+    currentAction = null;
+  
+}
 
 function clear (){
-    currentNumber.textContent = '0';
+    previousNumber.textContent = currentNumber.textContent;
+    currentNumber.textContent = '';
     currentAction = null;
-    number1 = '';
-    number2 = '';
+    
 }
 
 function operate (action, a, b){
     let result;
+
     a = parseFloat(a);
     b = parseFloat(b);
-    console.log(a);
-    console.log(b);
+
     switch (action){
         case '+':
             result = a + b
@@ -126,11 +142,9 @@ function operate (action, a, b){
         case '/':
             result = b / a;
             break;
-        case 'AC':
-            result = '';
-            break;
-        case '<':
-            deleteNumber (currentNumber);
+        case '%':
+            result = parseFloat(a/100);
+            console.log(result);
         default:
             return null;
     }
