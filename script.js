@@ -37,7 +37,7 @@ if (type === 'number'){
         return;
     }
         else{
-            operate (currentAction, currentNumber.textContent, previousNumber.textContent);
+            operate (currentAction, previousNumber.textContent, currentNumber.textContent);
 
         }
 
@@ -140,7 +140,7 @@ function operate (action, a, b){
             result = a * b;
         break;
         case '/':
-            result = b / a;
+            result = a / b;
             break;
         case '%':
             result = parseFloat(a/100);
